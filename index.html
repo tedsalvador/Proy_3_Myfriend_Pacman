@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Fondo Pac-Man</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header class="header">       
+        <img src="./images/pac-man-logo.png" alt="Pac-Man Logo" class="header-logo">
+        <span><h1>Bienvenido a mi página con fondo de Pac-Man</h1></span>
+        <img src="./images/pac-man-logo-png-transparent.png" alt="Pac-Man Logo Transparent" class="header-logo">
+    </header>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!--<link rel="stylesheet" href="style.css">-->
-        <link rel="stylesheet" type="text/css" href="./styles/style.css">
-        <title>My Best Friend - PAC MAN</title>
-    </head>
-
-    <body>
-        <form id="formulario">
-        <div>AQUI VA IR PACMAN</div>
-        </form>
-        
-    </body>
-
+    <audio id="pacman-audio" src="./mp3/Pacman-Game-Start-Sound.mp3" autoplay></audio>
+    <div class="container">
+        <img src="./images/pacman-icon.png" alt="Pac-Man Logo" class="logo">
+        <img src="./images/fantasmito.png" alt="Fantasmita" class="fantasmita" id="fantasmito">
+    </div>
+    <script src="./scripts/script.js"></script>
+</body>
 </html>
