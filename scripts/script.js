@@ -3,7 +3,7 @@ let intervalId;
 let gameOver = false;
 
 document.body.addEventListener('click', function() {
-    var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
+    let audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
     audio.play();
 }, { once: true });
 
@@ -49,11 +49,15 @@ document.getElementById('fantasmito').addEventListener('click', function() {
 
 function replaceWithPacMan(element) {
     // Find and remove any existing Pac-Man icon
-    var existingPacMan = document.querySelector('.pacman-icon');
+    let existingPacMan = document.querySelector('.pacman-icon');
+    let existingPacManlogo = document.querySelector('.logo');
     if (existingPacMan) {
         existingPacMan.remove();
     }
 
+    if (existingPacManlogo) {
+        existingPacManlogo.remove();
+    }
     // Replace the clicked element with Pac-Man icon
     element.src = './images/pacman-icon.png';
     element.alt = 'Pac-Man Icon';

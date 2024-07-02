@@ -73,7 +73,7 @@ h1, p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-@import url();
+/* @import url(); */
 @font-face {
   font-family: 'PacFont';
   src: url('./font/PAC-FONT.TTF') format('truetype');
