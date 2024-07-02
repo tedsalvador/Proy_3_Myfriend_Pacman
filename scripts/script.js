@@ -1,7 +1,7 @@
-document.body.addEventListener('click', function() {
+/* document.body.addEventListener('click', function() {
     var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
     audio.play();
-}, { once: true }); 
+}, { once: true });  */
 
 /* document.body.addEventListener('click', function() {
     var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
@@ -14,33 +14,72 @@ document.body.addEventListener('click', function() {
 }); */
 
 
+let score = 0;
+let intervalId;
+
+document.body.addEventListener('click', function() {
+    var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
+    audio.play();
+}, { once: true });
+
 document.getElementById('fantasmito').addEventListener('click', function() {
     var fantasmito = this;
-    fantasmito.src = './images/pacman-icon.png';
-    fantasmito.alt = 'Pac-Man Icon';
+    updateScore(100);
+    replaceWithPacMan(fantasmito);
 
     setTimeout(function() {
-        fantasmito.style.display = 'none';
+        let count = 1;
+        intervalId = setInterval(function() {
+            if (score >= 5000) {
+                clearInterval(intervalId);
+                alert('GAME OVER');
+                return;
+            }
 
-        setInterval(function() {
-            var newFantasmito = document.createElement('img');
-            newFantasmito.src = './images/fantasmito.png';
-            newFantasmito.alt = 'Fantasmita';
-            newFantasmito.className = 'fantasmita';
-            newFantasmito.id = 'fantasmito';
-            newFantasmito.style.cursor = 'pointer';
+            var newImage = document.createElement('img');
 
-            newFantasmito.addEventListener('click', function() {
-                var clickedFantasmito = this;
-                clickedFantasmito.src = './images/pacman-icon.png';
-                clickedFantasmito.alt = 'Pac-Man Icon';
+            if (count % 4 === 0) {
+                newImage.src = './images/cherry.png';
+                newImage.alt = 'Cherry';
+                newImage.className = 'cherry';
+            } else {
+                newImage.src = './images/fantasmito.png';
+                newImage.alt = 'Fantasmita';
+                newImage.className = 'fantasmita';
+            }
 
-                setTimeout(function() {
-                    clickedFantasmito.style.display = 'none';
-                }, 2000); // Pac-Man icon disappears after 2 seconds
+            newImage.style.cursor = 'pointer';
+            newImage.addEventListener('click', function() {
+                let points = (this.className === 'cherry') ? 500 : 100;
+                updateScore(points);
+                replaceWithPacMan(this);
             });
 
-            document.querySelector('.container').appendChild(newFantasmito);
+            document.querySelector('.images').appendChild(newImage);
+            count++;
         }, 2000);
-    }, 2000); // Pac-Man icon disappears after 2 seconds
+    }, 2000);
 });
+
+function replaceWithPacMan(element) {
+    // Find and remove any existing Pac-Man icon
+    var existingPacMan = document.querySelector('.pacman-icon');
+    if (existingPacMan) {
+        existingPacMan.remove();
+    }
+
+    // Replace the clicked element with Pac-Man icon
+    element.src = './images/pacman-icon.png';
+    element.alt = 'Pac-Man Icon';
+    element.className = 'pacman-icon';
+}
+
+function updateScore(points) {
+    score += points;
+    document.getElementById('score').textContent = 'Puntos: ' + score;
+
+    if (score >= 5000) {
+        clearInterval(intervalId);
+        alert('GAME OVER');
+    }
+}

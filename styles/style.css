@@ -1,12 +1,13 @@
-/*   body {
-    background-color: #db9f13;
-    background-image: url(../images/fondo-pacman.jpg); 
-  }  */
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
 
 body {
     margin: 0;
     padding: 0;
-    background-image: url('/images/fondo-pacman.jpg');
+    background-image: url('../images/fondo-pacman.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -17,7 +18,7 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
-    cursor: pointer; /* Añadir un cursor pointer para indicar que se puede hacer clic */
+    cursor: pointer;
 }
 
 .header {
@@ -25,14 +26,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 0;
+    position: relative;
 }
 
 .header-logo {
     width: 100px;
     height: auto;
     margin: 0 10px;
+}
+
+.score {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .container {
@@ -43,17 +53,20 @@ body {
     justify-content: center;
 }
 
-.logo {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.fantasmita {
+.fantasmita,
+.cherry,
+.pacman-icon {
     width: 100px;
     height: 100px;
-    margin-top: 20px;
-    cursor: pointer; /* Añadir un cursor pointer para indicar que se puede hacer clic */
+    cursor: pointer;
 }
 
 h1, p {
