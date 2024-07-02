@@ -72,3 +72,23 @@ body {
 h1, p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
+
+@import url();
+@font-face {
+  font-family: 'PacFont';
+  src: url('./font/PAC-FONT.TTF') format('truetype');
+}
+
+#game-over {
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 70%;
+    background-color: #1b1b1b9c;
+    color: white;
+    font-family: "PacFont", sans-serif;
+    font-size: 60px;
+    padding-top: 15%;
+    padding-left: 40%;
+    display: none;
+  }

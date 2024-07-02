@@ -1,21 +1,6 @@
-/* document.body.addEventListener('click', function() {
-    var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
-    audio.play();
-}, { once: true });  */
-
-/* document.body.addEventListener('click', function() {
-    var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
-    audio.play();
-}); */
-
-/* document.getElementById('fantasmito').addEventListener('click', function() {
-    this.src = './images/pacman-icon.png';
-    this.alt = 'Pac-Man Icon';
-}); */
-
-
 let score = 0;
 let intervalId;
+let gameOver = false;
 
 document.body.addEventListener('click', function() {
     var audio = new Audio('/mp3/Pacman-Game-Start-Sound.mp3');
@@ -23,16 +8,17 @@ document.body.addEventListener('click', function() {
 }, { once: true });
 
 document.getElementById('fantasmito').addEventListener('click', function() {
-    var fantasmito = this;
     updateScore(100);
-    replaceWithPacMan(fantasmito);
+    replaceWithPacMan(this);
 
     setTimeout(function() {
         let count = 1;
         intervalId = setInterval(function() {
             if (score >= 5000) {
                 clearInterval(intervalId);
-                alert('GAME OVER');
+                // alert('GAME OVER');
+                gameOver = true;
+                document.getElementById("game-over").style.display = "block";
                 return;
             }
 
@@ -80,6 +66,9 @@ function updateScore(points) {
 
     if (score >= 5000) {
         clearInterval(intervalId);
-        alert('GAME OVER');
+        // alert('GAME OVER');
+        gameOver = true;
+        document.getElementById("game-over").style.display = "block";
     }
 }
+
